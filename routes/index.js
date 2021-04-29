@@ -3,7 +3,6 @@ const router = express.Router();
 
 const homeController = require("../controller/home_controller");
 
-console.log("router loading");
 router.get("/", homeController.home);
-
+router.use("/user", require("./user"));
 module.exports = router;
