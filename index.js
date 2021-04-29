@@ -2,17 +2,15 @@ const express = require("express");
 const port = 8000;
 const app = express();
 const expressLayouts = require("express-ejs-layouts");
-
+const db = require("./config/mongoose");
 
 //use express layouts functionality
 app.use(expressLayouts);
 
-//extract style and scripts 
+//extract style and scripts
 //from sub pages into the  layouts
-app.set('layout extractStyles', true);
+app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
-
-
 
 //set up the view engine
 app.set("view engine", "ejs");
