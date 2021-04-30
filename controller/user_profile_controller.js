@@ -108,3 +108,9 @@ module.exports.createSession = function (req, res) {
     }
   });
 };
+
+module.exports.signOut = function (req, res) {
+  console.log("i'm in sign out action");
+
+  return res.redirect("/user/sign-in");
+};
