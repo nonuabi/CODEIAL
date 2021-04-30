@@ -13,7 +13,8 @@ passport.use(
     function (email, password, done) {
       //find a user and establish the identity
       User.findOne({ email: email }, function (err, user) {
-        if (!user || user.passwort != password) {
+        console.log(user);
+        if (!user || user.password != password) {
           console.log("Invalid username / password");
           return done(null, false);
         }
