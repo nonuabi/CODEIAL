@@ -59,3 +59,4 @@ module.exports.destroySession = function (req, res) {
 
   return res.redirect("/");
 };
+
