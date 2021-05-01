@@ -13,5 +13,19 @@
       placeholder="Type Here...."
     ></textarea>
     <input type="submit" value="Post" />
+
+    <div>
+      <ul>
+        <%for(let i of arr) {%>
+        <li>
+          <p>
+            <%= i.content%>
+            <br />
+            <small><%= i.user.name%></small>
+          </p>
+        </li>
+        <%}%>
+      </ul>
+    </div>
   </form>
 </section>
