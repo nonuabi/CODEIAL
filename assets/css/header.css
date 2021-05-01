@@ -1,0 +1,17 @@
+header {
+  background-color: blue;
+  display: flex;
+  justify-content: space-between;
+  color: white; }
+  header h1 {
+    margin: 0; }
+  header ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    margin: 6px 0 0 0; }
+    header ul li {
+      margin: 0 10px 0 0; }
+      header ul li a {
+        color: white;
+        font-weight: 800; }

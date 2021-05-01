@@ -1,0 +1,13 @@
+footer {
+  background-color: gray;
+  display: flex; }
+  footer h1 {
+    color: white; }
+  footer p {
+    margin: 0 0 0 5px;
+    color: white;
+    font-size: larger; }
+  footer .footer-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
