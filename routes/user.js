@@ -4,7 +4,7 @@ const passport = require("passport");
 //profile route
 const userProfileController = require("../controller/user_profile_controller");
 router.get(
-  "/profile",
+  "/profile/:id",
   passport.checkAuthentication,
   userProfileController.profile
 );

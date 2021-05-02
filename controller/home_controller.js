@@ -1,4 +1,5 @@
 const Post = require("../models/post");
+const User = require("../models/user");
 
 module.exports.home = function (req, res) {
   Post.find({})
@@ -15,9 +16,13 @@ module.exports.home = function (req, res) {
       from the db :: ${err}`);
         return;
       }
-      return res.render("home", {
-        title: "Codeial || Home",
-        arr: post,
+
+      User.find({}, function (err, users) {
+        return res.render("home", {
+          title: "Codeial || Home",
+          arr: post,
+          all_users: users,
+        });
       });
     });
 
