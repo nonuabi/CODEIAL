@@ -8,7 +8,11 @@ router.get(
   passport.checkAuthentication,
   userProfileController.profile
 );
-
+router.post(
+  "/update/:id",
+  passport.checkAuthentication,
+  userProfileController.update
+);
 //signIn route
 
 router.get("/sign-in", userProfileController.signIn);
@@ -27,6 +31,5 @@ router.post(
 );
 
 router.get("/sign-out", userProfileController.destroySession);
-
 
 module.exports = router;
