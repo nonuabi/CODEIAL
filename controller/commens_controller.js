@@ -7,7 +7,6 @@ module.exports.create = function (req, res) {
       console.log(`error occure while finding the post in database :: ${err}`);
       return;
     }
-
     if (post) {
       Comment.create(
         {
@@ -30,6 +29,26 @@ module.exports.create = function (req, res) {
           return res.redirect("/");
         }
       );
+    }
+  });
+};
+
+module.exports.destroy = function (req, res) {
+  Comment.findById(req.params.id, function (err, comment) {
+    if (comment.user == req.user.id) {
+      let post_id = comment.post;
+      comment.remove();
+      Post.findByIdAndUpdate(
+        post_id,
+        {
+          $pull: { comments: req.params.id },
+        },
+        function (err, post) {
+          return res.redirect("back");
+        }
+      );
+    } else {
+      return res.redirect("back");
     }
   });
 };
