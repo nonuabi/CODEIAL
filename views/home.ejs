@@ -21,52 +21,7 @@
 
   <div>
     <ul>
-      <%for(let i of arr) {%>
-      <li>
-        <p>
-          <%if(locals.user && locals.user.id == i.user.id) {%>
-          <small>
-            <a href="/post/distroy/<%= i._id %>">x &nbsp;</a>
-          </small>
-
-          <%}%> <%= i.content%>
-          <br />
-          <small><%= i.user.name%></small>
-        </p>
-        <div class="post-comments">
-          <%if(locals.user){%>
-          <form action="/comments/create" method="POST">
-            <input
-              type="text"
-              name="content"
-              placeholder="Add Comment..."
-              required
-            />
-            <input type="hidden" name="post" value="<%= i._id%>" />
-            <input type="submit" value="Add Comment" />
-          </form>
-
-          <%}%>
-
-          <div class="post-comments-list">
-            <ul id="post-comments-<%= i._id%>">
-              <%for(comment of i.comments) {%>
-              <p>
-                <% if(locals.user && locals.user.id == comment.user.id){ %>
-                <small>
-                  <a href="/comments/destroy/<%= comment.id%>">X &nbsp</a>
-                </small>
-                <%}%> <%= comment.content%>
-                <br />
-                <small> <%= comment.user.name%> </small>
-              </p>
-
-              <%}%>
-            </ul>
-          </div>
-        </div>
-      </li>
-      <%}%>
+      <%for( i of arr) {%> <%- include('_post') -%> <%}%>
     </ul>
   </div>
 </section>
