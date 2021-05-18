@@ -35,7 +35,6 @@
                         </small>
                     </p>
                     <div class="post-comments">
-                        
                         <form action="/comments/create" method="POST">
                         <input type="text" name="content" placeholder="Add Comment..." required />
                         <input type="hidden" name="post" value=${post._id}" />

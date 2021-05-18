@@ -4,7 +4,11 @@
 
 <%if(user.id == profile_user.id){%>
 <!-- if user matches then, show the form  -->
-<form action="/user/update/<%= profile_user.id%>" method="POST">
+<form
+  action="/user/update/<%= profile_user.id%>"
+  enctype="multipart/form-data"
+  method="POST"
+>
   <input
     type="text"
     name="name"
@@ -21,6 +25,7 @@
     id=""
     required
   />
+  <input type="file" name="avater" placeholder="Profile Picture" />
   <input type="submit" name="" value="update" id="" />
 </form>
 
