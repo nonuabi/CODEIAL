@@ -12,8 +12,7 @@ const passportLocal = require("./config/passport-local-strategy");
 const MongoStore = require("connect-mongo")(session);
 const sassMiddleware = require("node-sass-middleware");
 const flash = require("connect-flash");
-const customMware = require('./config/middleware');
-
+const customMware = require("./config/middleware");
 
 app.use(
   sassMiddleware({
@@ -27,6 +26,13 @@ app.use(
 app.use(express.urlencoded());
 app.use(cookieParser());
 
+
+
+//use static files
+app.use(express.static("./assets"));
+
+//makes the uploads path available to the brower
+app.use("/uploads", express.static(__dirname + "/uploads"));
 //use express layouts functionality
 app.use(expressLayouts);
 
@@ -38,9 +44,6 @@ app.set("layout extractScripts", true);
 //set up the view engine
 app.set("view engine", "ejs");
 app.set("views", "./views");
-
-//use static files
-app.use(express.static("./assets"));
 
 //mongo store is used to store the session cookie in the db
 app.use(
