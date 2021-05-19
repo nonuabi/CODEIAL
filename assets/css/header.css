@@ -3,6 +3,11 @@ header {
   display: flex;
   justify-content: space-between;
   color: white; }
+  header a {
+    color: white;
+    font-weight: 800;
+    font-size: larger;
+    margin: 0; }
   header h1 {
     margin: 0; }
   header ul {
