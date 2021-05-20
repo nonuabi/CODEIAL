@@ -9,6 +9,7 @@ const db = require("./config/mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocal = require("./config/passport-local-strategy");
+const passportJWT = require("./config/passport-jtw-strategy");
 const MongoStore = require("connect-mongo")(session);
 const sassMiddleware = require("node-sass-middleware");
 const flash = require("connect-flash");
@@ -25,8 +26,6 @@ app.use(
 );
 app.use(express.urlencoded());
 app.use(cookieParser());
-
-
 
 //use static files
 app.use(express.static("./assets"));
