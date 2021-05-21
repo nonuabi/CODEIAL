@@ -13,12 +13,11 @@ router.post(
   passport.checkAuthentication,
   userProfileController.update
 );
-//signIn route
 
+//signIn route
 router.get("/sign-in", userProfileController.signIn);
 
 //signUp route
-
 router.get("/sign-up", userProfileController.signUp);
 
 router.post("/create", userProfileController.create);
@@ -31,5 +30,15 @@ router.post(
 );
 
 router.get("/sign-out", userProfileController.destroySession);
+
+router.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
+router.get(
+  "/auth/google/callback",
+  passport.authenticate("google", { failureRedirect: "/user/sign-in" }),
+  userProfileController.createSession
+);
 
 module.exports = router;
